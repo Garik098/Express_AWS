@@ -1,0 +1,24 @@
+{
+  "name": "home_automation",
+  "version": "1.0.0",
+  "description": "Home Automation - Taking care of security, trees, etc",
+  "main": "handler.js",
+  "scripts": {
+    "start": "node local.js",
+    "test": "nyc --reporter=text mocha --timeout=1000"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "serverless-http": "2.0.2",
+    "url": "^0.11.0"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "aws-sdk": "^2.661.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.1"
+  }
+}
