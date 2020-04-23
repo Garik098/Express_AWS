@@ -32,4 +32,48 @@ approuter.get("/deviceshadow", function(req,response){
     }
 })
 
+approuter.post("/newparameter", function(req, response){
+    if(req.body == null){
+        response.status(200).send("No body to post")
+    }
+    else{
+        if(req.query.thingname == null){
+            response.status(200).send("No thingname present")
+        }
+        else{
+            var payload = {
+                "state":{
+                    "desired":{
+
+                    }
+                }
+            }
+            payload.state.desired = req.body
+            var updatethingshadowparams = {
+                'thingName': req.query.thingname,
+                'payload': JSON.stringify(payload)
+            }
+            var promise = new Promise(function(resolve, reject) {
+                let shadow = new AWS.IotData({endpoint: configuration.thingendpoint})
+                shadow.updateThingShadow(updatethingshadowparams, (err, res) => {
+                    if(err){
+                        reject(err)
+                    }
+                    else{
+                        resolve(res)
+                    }
+                })
+            })
+            promise.then(function(res){
+                console.log(res)
+                response.status(200).send("successfully completed posting to the shadow")
+            })
+            promise.catch(function(err){
+                response.status(500).send("Posting to shadow not successful")
+            })
+        }
+        
+    }
+})
+
 module.exports = approuter

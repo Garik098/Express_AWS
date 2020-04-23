@@ -5,7 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "start": "node local.js",
-    "test": "nyc --reporter=text mocha --timeout=1000"
+    "test": "nyc --reporter=text mocha --timeout=10000"
   },
   "dependencies": {
     "express": "4.17.1",

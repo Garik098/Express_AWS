@@ -5,3 +5,5 @@ package-lock.json
 
 # Serverless directories
 .serverless
+.nyc_output
+config.js

@@ -22,6 +22,10 @@ functions:
         path: /v1/deviceshadow
         description: "Get related functionality"
         method: get
+    - http:
+        path: /v1/newparameter
+        method: post
+        description: "Add new parameter to the thing shadow"
         
 
 package:
